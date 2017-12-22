@@ -28,3 +28,15 @@ my_permute(L, [X|T]):-my_remove(X, L, Y), my_permute(Y, T).
 %Подсписок в списке - (список, подсписок)
 
 my_sublist(S, L):-my_append(_, L1, L), my_append(S, _, L1).
+
+
+% Нахождение элемента списка, следующего за данным
+find_next(Num, [Num, ResNum|_], ResNum):-
+    !. 
+find_next(Num, [_|Tail], ResNum):- 
+    find_next(Num, Tail, ResNum).
+    
+%task(Num, List):-
+%   find_next(Num, List, ResNum), 
+%   write(ResNum).
+
